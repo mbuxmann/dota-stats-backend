@@ -9,8 +9,8 @@ database = 'database.db'
 app = Flask(__name__)
 cors = CORS(app)
 
-initialize()
-schedule.every(1).minutes.do(update())
+
+schedule.every().hour.do(update())
 
 
 @app.route('/GetHeroes/')
