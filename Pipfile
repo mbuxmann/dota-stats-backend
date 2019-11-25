@@ -10,7 +10,6 @@ flask = "*"
 flask-cors = "*"
 gunicorn = "*"
 request = "*"
-time = "*"
 
 [requires]
 python_version = "3.7"
