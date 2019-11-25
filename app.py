@@ -1,17 +1,10 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-from main import initialize, update
-import schedule
-import time
 
 database = 'database.db'
 
 app = Flask(__name__)
 cors = CORS(app)
-
-
-schedule.every().hour.do(update())
-
 
 @app.route('/GetHeroes/')
 @cross_origin()
