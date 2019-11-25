@@ -6,7 +6,7 @@ import sqlite3
 
 debug = False
 debug_heroes = False
-database = 'database.db'
+database = '/home/ubuntu/dota-stats-backend/database/database.db'
 matches_requested = 3
 WebAPIKey = "7ED28ADAFD5EE5F46D041EF05E65E78F"
 steam_id = 126747751

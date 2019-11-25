@@ -164,7 +164,7 @@ def check_match_exists(match_id):
         return True
 
     if debug:
-        print('The match id {} does not exists'.format(match_id))
+        print('The match id {} was added    '.format(match_id))
     
     cursor.close()
     connection.close()

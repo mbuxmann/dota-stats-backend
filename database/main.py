@@ -6,9 +6,6 @@ from update_tables import update_heroes_table, update_items_table, update_matche
 import database as db
 import update_tables
 
-
-from config import database
-
 def initialize():
     print('INITIALIZING')
     db.check_tables_exists()
@@ -22,7 +19,7 @@ def update():
     update_matches_tables()
     update_items_table()
     print('DONE UPDATING TABLES')
-    
+
 initialize()
 schedule.every().hour.do(update)
 
