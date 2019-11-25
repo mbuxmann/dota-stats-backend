@@ -1,7 +1,7 @@
 import ast
 import sqlite3
 
-database = '../DOTA_Back_End/database.db'
+database = 'database.db'
 
 
 def get_heroes():
