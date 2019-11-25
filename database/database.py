@@ -1,7 +1,7 @@
 from config import database, sqlite3
 from datetime import datetime
 
-debug = True
+debug = False
 
 def check_tables_exists():
 
