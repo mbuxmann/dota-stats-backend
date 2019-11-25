@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import schedule
 
 debug = False
 debug_heroes = False
