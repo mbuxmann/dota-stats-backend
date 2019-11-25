@@ -10,3 +10,4 @@ def initialize():
     get_latest_matches(matches_requested)
     print('DONE INTIALIZING')
 
+initialize()
