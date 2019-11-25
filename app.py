@@ -1,11 +1,16 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
+from main import initialize, update_tables 
+import schedule
+import time
 
 database = 'database.db'
 
 app = Flask(__name__)
 cors = CORS(app)
-app.debug = True
+
+initialize()
+schedule.every(1).minutes.do(update_tables())
 
 
 @app.route('/GetHeroes/')

@@ -11,6 +11,7 @@ flask = "*"
 flask-cors = "*"
 gunicorn = "*"
 request = "*"
+schedule = "*"
 
 [requires]
 python_version = "3.7"
