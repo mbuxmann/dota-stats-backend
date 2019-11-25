@@ -14,13 +14,15 @@ def initialize():
     db.check_tables_exists()
     get_heroes()
     get_latest_matches(30)
+    print('DONE INTIALIZING')
 
 def update():
     print('UPDATING TABLES')
     update_heroes_table()
     update_matches_tables()
     update_items_table()
-
+    print('DONE UPDATING TABLES')
+    
 initialize()
 schedule.every().hour.do(update)
 
