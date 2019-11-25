@@ -1,14 +1,13 @@
 import sqlite3
-from config import database
+from config import pg8000, user, password, host, port, database
 from datetime import datetime
 
 debug = True
 
-
 def check_tables_exists():
 
     tables_required = ['heroes', 'matches', 'items']
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -40,7 +39,7 @@ def check_tables_exists():
 
 
 def create_heroes_table():
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -51,11 +50,12 @@ def create_heroes_table():
 
     cursor.execute(SQLQuery)
     cursor.close()
+    connection.commit()
     connection.close()
 
 
 def check_hero_exists(hero_id):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -70,22 +70,23 @@ def check_hero_exists(hero_id):
 
     if cursor.fetchone()[0] == 1:
         cursor.close()
+        connection.close()
+        
         if debug:
             print('The hero id {} exists'.format(hero_id))
-        connection.close()
+        
         return True
 
     if debug:
         print('The hero id {} was added'.format(hero_id))
 
+    cursor.close()
+    connection.close()    
+
     return False
 
-    cursor.close()
-    connection.close()
-
-
 def add_hero(hero_id, hero_name):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -95,14 +96,13 @@ def add_hero(hero_id, hero_name):
     '''
 
     cursor.execute(SQLQuery, (hero_id, hero_name))
-
-    connection.commit()
     cursor.close()
+    connection.commit()
     connection.close()
 
 
 def create_matches_table():
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -139,11 +139,12 @@ def create_matches_table():
 
     cursor.execute(SQLQuery)
     cursor.close()
+    connection.commit()
     connection.close()
 
 
 def check_match_exists(match_id):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -158,19 +159,18 @@ def check_match_exists(match_id):
 
     if cursor.fetchone()[0] == 1:
         cursor.close()
+        connection.close()
         if debug:
             print('The match id {} exists'.format(match_id))
-        connection.close()
         return True
 
     if debug:
         print('The match id {} does not exists'.format(match_id))
-
-    return False
-
+    
     cursor.close()
     connection.close()
-
+    
+    return False
 
 def add_match(match_id, game_mode, radiant_win, dire_team, hero_id,
               hero_level, kills, deaths, assists, last_hits, denies,
@@ -179,7 +179,7 @@ def add_match(match_id, game_mode, radiant_win, dire_team, hero_id,
               backpack_list, hero_abilities, first_blood_time, match_duration,
               match_seq_num, leaver_status, match_date_time):
 
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -229,12 +229,12 @@ def add_match(match_id, game_mode, radiant_win, dire_team, hero_id,
                               'match_date_time': match_date_time,
                               'inserted_date_time': inserted_date_time})
 
-    connection.commit()
     cursor.close()
+    connection.commit()
     connection.close()
 
 def create_items_table():
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -249,10 +249,11 @@ def create_items_table():
 
     cursor.execute(SQLQuery)
     cursor.close()
+    connection.commit()
     connection.close()
 
 def check_item_exists(item_id):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -267,23 +268,23 @@ def check_item_exists(item_id):
 
     if cursor.fetchone()[0] == 1:
         cursor.close()
+        connection.close()
         if debug:
             print('The item id {} exists'.format(item_id))
-        connection.close()
         return True
 
     if debug:
         print('The item id {} does not exists'.format(item_id))
 
-    return False
-
     cursor.close()
     connection.close()
+    
+    return False
 
 def add_item(item_id, item_name, item_cost, item_secret_shop,
                 item_side_shop, item_recipe):
 
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -302,12 +303,13 @@ def add_item(item_id, item_name, item_cost, item_secret_shop,
                                 'item_side_shop': item_side_shop,
                                 'item_recipe': item_recipe})
 
-    connection.commit()
     cursor.close()
+    connection.commit()
     connection.close()
 
 def get_latest_match_id():
-    connection = sqlite3.connect(database)
+
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -330,7 +332,7 @@ def get_latest_match_id():
 
 
 def get_latest_number_of_heroes_from_database():
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -350,7 +352,7 @@ def get_latest_number_of_heroes_from_database():
     return number_of_heroes[0]
 
 def get_latest_number_of_items_from_database():
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''

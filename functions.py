@@ -1,11 +1,15 @@
 import ast
 import sqlite3
+import pg8000
 
-database = 'database/database.db'
-
+user = "vgajljwoqlrgmi"
+password = "095b820e91cec4915c71d18a237aa898a180b6cd7a8e189bd3c7364c6eacb862"
+host = "ec2-54-246-98-119.eu-west-1.compute.amazonaws.com"
+port = 5432
+database = "dffon80rotpm9n"
 
 def get_heroes():
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -31,11 +35,14 @@ def get_heroes():
         heroes[str(i)]['hero_name'] = heroes_data[i][1]
         i += 1
 
+    cursor.close()
+    connection.close()
+
     return heroes
 
 
 def get_recent_matches(matches_requested, hero_id):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     if hero_id is None:
@@ -77,7 +84,7 @@ def get_recent_matches(matches_requested, hero_id):
 
 
 def get_match_result(match_ids):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -141,7 +148,7 @@ def get_match_result(match_ids):
 
 # TODO convert radian win to win matches percentage
 def get_averages_of_latest_matches(matches_requested, hero_id):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     if hero_id is None:
@@ -170,6 +177,9 @@ def get_averages_of_latest_matches(matches_requested, hero_id):
         '''
 
     cursor.execute(SQLQuery.format(matches_requested), {'hero_id': hero_id})
+    
+    cursor.close()
+    connection.close()
 
     data = cursor.fetchone()
 
@@ -191,7 +201,7 @@ def get_averages_of_latest_matches(matches_requested, hero_id):
 
 
 def get_items():
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -202,6 +212,9 @@ def get_items():
     '''
 
     cursor.execute(SQLQuery)
+
+    cursor.close()
+    connection.close()
 
     items_data = cursor.fetchall()
 
@@ -224,7 +237,7 @@ def get_items():
     return items
 
 def get_win_rate(hero_id, matches_requested):
-    connection = sqlite3.connect(database)
+    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -251,7 +264,11 @@ def get_win_rate(hero_id, matches_requested):
     '''
 
     cursor.execute(SQLQuery.format(matches_requested), {"hero_id": hero_id})
+    
     recent_amount_of_games_won = cursor.fetchone()
+
+    cursor.close()
+    connection.close()
 
     win_rate_data = round((recent_amount_of_games_won[0] / recent_amount_of_games[0]) * 100, 2)
 

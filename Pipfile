@@ -12,6 +12,7 @@ flask-cors = "*"
 gunicorn = "*"
 schedule = "*"
 requests = "*"
+pg8000 = "*"
 
 [requires]
 python_version = "3.7"
