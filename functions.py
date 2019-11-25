@@ -1,15 +1,10 @@
 import ast
 import sqlite3
-import pg8000
 
-user = "vgajljwoqlrgmi"
-password = "095b820e91cec4915c71d18a237aa898a180b6cd7a8e189bd3c7364c6eacb862"
-host = "ec2-54-246-98-119.eu-west-1.compute.amazonaws.com"
-port = 5432
-database = "dffon80rotpm9n"
+database = "database/database.db"
 
 def get_heroes():
-    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
+    connection = sqlite3.connect(database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -42,7 +37,7 @@ def get_heroes():
 
 
 def get_recent_matches(matches_requested, hero_id):
-    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
+    connection = sqlite3.connect(database)
     cursor = connection.cursor()
 
     if hero_id is None:
@@ -84,7 +79,7 @@ def get_recent_matches(matches_requested, hero_id):
 
 
 def get_match_result(match_ids):
-    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
+    connection = sqlite3.connect(database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -148,7 +143,7 @@ def get_match_result(match_ids):
 
 # TODO convert radian win to win matches percentage
 def get_averages_of_latest_matches(matches_requested, hero_id):
-    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
+    connection = sqlite3.connect(database)
     cursor = connection.cursor()
 
     if hero_id is None:
@@ -201,7 +196,7 @@ def get_averages_of_latest_matches(matches_requested, hero_id):
 
 
 def get_items():
-    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
+    connection = sqlite3.connect(database)
     cursor = connection.cursor()
 
     SQLQuery = '''
@@ -237,7 +232,7 @@ def get_items():
     return items
 
 def get_win_rate(hero_id, matches_requested):
-    connection = pg8000.connect(user=user, password=password, host=host, port=port, database=database)
+    connection = sqlite3.connect(database)
     cursor = connection.cursor()
 
     SQLQuery = '''

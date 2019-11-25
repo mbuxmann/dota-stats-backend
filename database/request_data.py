@@ -1,5 +1,4 @@
- import sqlite3
-from config import database, debug
+from config import database, sqlite3
 import ast
 
 debug = True
