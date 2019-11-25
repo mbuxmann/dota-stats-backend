@@ -77,7 +77,7 @@ def check_hero_exists(hero_id):
         return True
 
     if debug:
-        print('The hero id {} was added'.format(hero_id))
+        print('The hero id {} does not exists'.format(hero_id))
 
     cursor.close()
     connection.close()    
@@ -95,6 +95,10 @@ def add_hero(hero_id, hero_name):
     '''
 
     cursor.execute(SQLQuery, (hero_id, hero_name))
+    
+    if debug:
+        print('The hero id {} was added'.format(hero_id))
+    
     cursor.close()
     connection.commit()
     connection.close()
@@ -164,7 +168,7 @@ def check_match_exists(match_id):
         return True
 
     if debug:
-        print('The match id {} was added    '.format(match_id))
+        print('The match id {} does not exists'.format(match_id))
     
     cursor.close()
     connection.close()
@@ -228,6 +232,9 @@ def add_match(match_id, game_mode, radiant_win, dire_team, hero_id,
                               'match_date_time': match_date_time,
                               'inserted_date_time': inserted_date_time})
 
+    if debug:
+        print('The match id {} was added'.format(match_id))
+        
     cursor.close()
     connection.commit()
     connection.close()
@@ -269,7 +276,7 @@ def check_item_exists(item_id):
         cursor.close()
         connection.close()
         if debug:
-            print('The item id {} exists'.format(item_id))
+            print('The item id {} already exists'.format(item_id))
         return True
 
     if debug:
@@ -301,6 +308,9 @@ def add_item(item_id, item_name, item_cost, item_secret_shop,
                                 'item_secret_shop': item_secret_shop,
                                 'item_side_shop': item_side_shop,
                                 'item_recipe': item_recipe})
+
+    if debug:
+        print('The item id {} was added'.format(item_id))
 
     cursor.close()
     connection.commit()
