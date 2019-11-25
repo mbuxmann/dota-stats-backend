@@ -1,7 +1,7 @@
 import ast
 import sqlite3
 
-database = "database/database.db"
+database = "/database/database.db"
 
 def get_heroes():
     connection = sqlite3.connect(database)
