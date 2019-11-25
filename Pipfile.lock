@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7165a2fc7dcc65cefb70d529def501ec3afa162680d355b232ee674c43e13ed5"
+            "sha256": "8f13167b7b0d0b424ff0049b53ad10ce296baf4e0cfe11404baaa065c4d26861"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,12 @@
             ],
             "index": "pypi",
             "version": "==3.0.8"
+        },
+        "get": {
+            "hashes": [
+                "sha256:688268840f923255932154a52bdd40ffac467de4126835c43846e9e6f112844c"
+            ],
+            "version": "==2019.4.13"
         },
         "gunicorn": {
             "hashes": [
@@ -93,6 +99,32 @@
                 "sha256:e249096428b3ae81b08327a63a485ad0878de3fb939049038579ac0ef61e17e7"
             ],
             "version": "==1.1.1"
+        },
+        "post": {
+            "hashes": [
+                "sha256:8fd57fb16f2c90ef4a76b04b8701c4db8ded170e53fac9514b5ea0272da5d36f"
+            ],
+            "version": "==2019.4.13"
+        },
+        "public": {
+            "hashes": [
+                "sha256:6e36c0d45d315efa071dd11313026301d59ee3a73433793c05fff6492766a172",
+                "sha256:e1436a8a99693a9849dfe40b9158f3837b7c309c163b2d3f5b8e9fce23876db1"
+            ],
+            "version": "==2019.4.13"
+        },
+        "query-string": {
+            "hashes": [
+                "sha256:bb24e4f58849ef6f8219b2446c2bed076d86c97720ae9c3ae918625807394ca8"
+            ],
+            "version": "==2019.4.13"
+        },
+        "request": {
+            "hashes": [
+                "sha256:6297b53c29a4928f7735034df2ab60aa1c7c044df989f605a81b7dc2d3713732"
+            ],
+            "index": "pypi",
+            "version": "==2019.4.13"
         },
         "six": {
             "hashes": [
