@@ -8,5 +8,6 @@ def update():
     update_matches_tables()
     update_items_table()
     print('DONE UPDATING TABLES')
-
+    print('  ')
+    
 update()
