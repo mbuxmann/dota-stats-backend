@@ -1,7 +1,7 @@
 import ast
 import sqlite3
 
-database = "database.db"
+database = "database/database.db"
 
 def get_heroes():
     connection = sqlite3.connect(database)
@@ -208,10 +208,10 @@ def get_items():
 
     cursor.execute(SQLQuery)
 
+    items_data = cursor.fetchall()
+
     cursor.close()
     connection.close()
-
-    items_data = cursor.fetchall()
 
     number_of_items = len(items_data)
 

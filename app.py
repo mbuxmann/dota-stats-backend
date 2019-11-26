@@ -1,8 +1,12 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
+
+
 app = Flask(__name__)
 cors = CORS(app)
+
+
 
 @app.route('/GetHeroes/')
 @cross_origin()
@@ -44,4 +48,4 @@ def get_win_rate():
     return win_rate_data
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
