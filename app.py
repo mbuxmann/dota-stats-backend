@@ -48,4 +48,4 @@ def get_win_rate():
     return win_rate_data
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
