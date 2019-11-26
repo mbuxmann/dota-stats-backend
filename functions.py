@@ -173,10 +173,10 @@ def get_averages_of_latest_matches(matches_requested, hero_id):
 
     cursor.execute(SQLQuery.format(matches_requested), {'hero_id': hero_id})
     
+    data = cursor.fetchone()
+    
     cursor.close()
     connection.close()
-
-    data = cursor.fetchone()
 
     averages = {}
 
