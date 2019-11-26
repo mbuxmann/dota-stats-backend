@@ -1,7 +1,6 @@
 import requests
 import json
 import time
-import schedule
 import sqlite3
 
 debug = True

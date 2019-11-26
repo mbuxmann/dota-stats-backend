@@ -12,5 +12,6 @@ def initialize():
     get_heroes()
     get_latest_matches(matches_requested)
     print('DONE INTIALIZING')
+    print('    ')
 
 initialize()
