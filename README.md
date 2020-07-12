@@ -13,6 +13,8 @@ With the hero id a lot of requests are then made to the Flask application. The d
 
 Currently the website only supports the resolution of 1920x1080
 
+<b>Website:</b> [BitVivAZ DOTA STATS](https://bitvivaz.com/dota-stats/)
+
 ### TODO
 
 - Support more resolutions
@@ -41,11 +43,9 @@ Currently the website only supports the resolution of 1920x1080
 - Front-end that parses all the data and displays it to the user
 - Cronjob that runs a python script to update every hour all the data
 
-<b>Front-end Source code:</b> [GitHub](https://github.com/bitVivAZ/dota-stats)
+### Source Code
 
-<b>Back-end Source code:</b> [GitHub](https://github.com/bitVivAZ/dota-stats-backend)
-
-<b>Website:</b> [BitVivAZ DOTA STATS](https://bitvivaz.com/dota-stats/)
+- Front end: [GitHub](https://github.com/bitVivAZ/dota-stats)
 
 ### Screenshots
 ![alt text][Welcome Page]
