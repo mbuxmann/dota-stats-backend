@@ -4,8 +4,6 @@ I created this project to learn more about using API's and serving data with a F
 
 Currently, the website only supports the resolution of 1920x1080.
 
-<b>Website:</b> [BitVivAZ DOTA STATS](https://bitvivaz.com/dota-stats/)
-
 ### TODO
 
 - Support more resolutions
