@@ -37,12 +37,12 @@ Currently, the website only supports the resolution of 1920x1080.
 - Front end: [GitHub](https://github.com/bitVivAZ/dota-stats)
 
 ### Screenshots
-![alt text][Welcome Page]
-![alt text][Oracle]
-![alt text][Axe]
-![alt text][Pudge]
+![Home Page][Welcome Page]
+![Oracle][Oracle]
+![Axe][Axe]
+![Pudge][Pudge]
 
-[Welcome Page]: https://bitvivaz.com/personal/assets/webdev/dotastats/images/homepage.png "Home Page"
-[Oracle]: https://bitvivaz.com/personal/assets/webdev/dotastats/images/oracle.png "Oracle"
-[Axe]: https://bitvivaz.com/personal/assets/webdev/dotastats/images/axe.png "Axe"
-[Pudge]: https://bitvivaz.com/personal/assets/webdev/dotastats/images/pudge.png "Pudge"
+[Welcome Page]: https://buxmann.dev/static/img/dotastats-homepage.png "Home Page"
+[Oracle]: https://buxmann.dev/static/img/dotastats-oracle.png "Oracle"
+[Axe]: https://buxmann.dev/static/img/dotastats-axe.png "Axe"
+[Pudge]: https://buxmann.dev/static/img/dotastats-pudge.png "Pudge"
